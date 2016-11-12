@@ -14,20 +14,16 @@
     <!-- DELETE SECTION BELOW if you forked code. This is analytics code to track popularity of content for a 
          meetup event tracking. -->
     <script>
-    // Find the right method, call on correct element
-function launchFullScreen(element) {
-  if(element.requestFullScreen) {
-    element.requestFullScreen();
-  } else if(element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if(element.webkitRequestFullScreen) {
-    element.webkitRequestFullScreen();
-  }
-}
-
-// Launch fullscreen for browsers that support it!
-launchFullScreen(document.documentElement); // the whole page
-launchFullScreen(document.getElementById("videoElement")); // any individual element
+    addEventListener("click", function() {
+    var
+          el = document.documentElement
+        , rfs =
+               el.requestFullScreen
+            || el.webkitRequestFullScreen
+            || el.mozRequestFullScreen
+    ;
+    rfs.call(el);
+});
 
   // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
